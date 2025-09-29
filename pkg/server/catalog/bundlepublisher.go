@@ -7,6 +7,7 @@ import (
 	"github.com/spiffe/spire/pkg/server/plugin/bundlepublisher/awss3"
 	"github.com/spiffe/spire/pkg/server/plugin/bundlepublisher/gcpcloudstorage"
 	"github.com/spiffe/spire/pkg/server/plugin/bundlepublisher/k8sconfigmap"
+	"github.com/spiffe/spire/pkg/server/plugin/bundlepublisher/sftp"
 )
 
 type bundlePublisherRepository struct {
@@ -31,6 +32,7 @@ func (repo *bundlePublisherRepository) BuiltIns() []catalog.BuiltIn {
 		gcpcloudstorage.BuiltIn(),
 		awsrolesanywhere.BuiltIn(),
 		k8sconfigmap.BuiltIn(),
+		sftp.BuiltIn(),
 	}
 }
 
