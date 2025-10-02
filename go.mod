@@ -67,6 +67,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/mitchellh/cli v1.1.5
 	github.com/open-policy-agent/opa v1.8.0
+	github.com/pkg/sftp v1.13.9
 	github.com/prometheus/client_golang v1.23.2
 	github.com/shirou/gopsutil/v4 v4.25.8
 	github.com/sigstore/cosign/v2 v2.6.0
@@ -265,7 +266,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/pkg/sftp v1.13.9 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/posener/complete v1.2.3 // indirect

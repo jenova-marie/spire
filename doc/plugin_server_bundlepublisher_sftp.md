@@ -4,6 +4,16 @@ The `sftp` plugin publishes trust bundle contents to a remote SFTP server. This 
 
 The plugin writes the bundle atomically (write to temporary file, then rename) to ensure that readers always see a consistent bundle state.
 
+## Comparison with Other Bundle Publishers
+
+| Feature                  | SFTP | AWS S3 | K8s ConfigMap |
+|--------------------------|------|--------|---------------|
+| Remote distribution      | ✓    | ✓      | ✓             |
+| No cloud dependency      | ✓    | ✗      | ✗             |
+| Atomic writes            | ✓    | ✗      | ✓             |
+| Authentication required  | ✓    | ✓      | ✓             |
+| Cross-platform           | ✓    | ✓      | ✗             |
+
 ## Configuration
 
 | Configuration   | Description                                                                                                     | Default |
@@ -303,16 +313,6 @@ If the bundle file is not being updated when the trust bundle changes:
 - Multiple bundle publishers (even multiple SFTP publishers) run in parallel without blocking each other
 - SSH connection establishment may take 1-2 seconds depending on network latency
 - Consider using SSH connection multiplexing or persistent connections for better performance in high-frequency update scenarios
-
-## Comparison with Other Bundle Publishers
-
-| Feature                  | SFTP | Disk | AWS S3 | K8s ConfigMap |
-|--------------------------|------|------|--------|---------------|
-| Remote distribution      | ✓    | ✗    | ✓      | ✓             |
-| No cloud dependency      | ✓    | ✓    | ✗      | ✗             |
-| Atomic writes            | ✓    | ✓    | ✗      | ✓             |
-| Authentication required  | ✓    | ✗    | ✓      | ✓             |
-| Cross-platform           | ✓    | ✓    | ✓      | ✗             |
 
 ## Future Enhancements
 
