@@ -295,7 +295,10 @@ func (p *Plugin) uploadToSFTP(config *Config, data []byte) error {
 		return fmt.Errorf("failed to set file mode: %w", err)
 	}
 
-	// Atomic rename
+	// Remove existing file if present (some SFTP servers don't support atomic rename over existing files)
+	sftpClient.Remove(config.FilePath) // Ignore error - file may not exist
+
+	// Rename temp file to final destination
 	if err := sftpClient.Rename(tmpPath, config.FilePath); err != nil {
 		return fmt.Errorf("failed to rename file: %w", err)
 	}
